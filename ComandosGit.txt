@@ -11,8 +11,6 @@ git status (Muestra la condición en la que se encuentran los archivos en la car
 git log <nombre archivo> (Muestra el historial de cambios realizados en un archivo)
 git log --stat (Muestra los cambios a nivel carpeta con los puntos de inserción realizados)
 git show <nombre archivo> (Muestra el ultimo commit y ubicación, mensaje del commit y muestra la diferencia en los diferentes cambios del archivo)
-git checkout <número commit> <nombre archivo> (Me trae de regreso en el tiempo un archivo especifico eliminando las modificación)
-git checkout master <nombre archivo> (Me trae de regreso el archivo en su versión actual de repositorio)
 
 
 # Comandos  ADD, COMMIT
@@ -23,6 +21,8 @@ git add <nombre archivo> (Agrega un archivo especifico al Stage)
 git commit (Agrega los archivos agregados al repositorio local)
 git commit -m "Mensaje" (Agrega los archivos agregados al repositoria local con un mensaje añadido)
 
+git commit -am "Mensaje" (Realiza el comando add. y commit de los archivos tracke)
+
 # Comandos de análisi de archivos
 
 git diff <número commit a comparar> <número commit con el que comparar>
@@ -31,3 +31,11 @@ git diff <número commit a comparar> <número commit con el que comparar>
 
 git reset <número commit> -soft (Regresa en el directorio de trabajo a la versión anterior)
 git reset <número commit> -hard (Regresa al estado anterior del archivo modificandolo por completo)
+git checkout <número commit> <nombre archivo> (Me trae de regreso en el tiempo un archivo especifico eliminando las modificación)
+git checkout master <nombre archivo> (Me trae de regreso el archivo en su versión actual de repositorio)
+
+# Comandos para manejo de Ramas 
+
+git branch <nombre rama> (Crear una rama y sigue los cambios realizandoce en master)
+git checkout <nombre rama> (Nos traslada a la rama enunciada)
+
