@@ -8,8 +8,9 @@ git config --global user.email "email@email.com"
 # Comandos de seguimiento de archivos 
 
 git status (Muestra la condición en la que se encuentran los archivos en la carpeta en la que estamos)
-git log <nombre archivo> (Muestra los cambios realizados en un archivo)
+git log <nombre archivo> (Muestra el historial de cambios realizados en un archivo)
 git show <nombre archivo> (Muestra el ultimo commit y ubicación, mensaje del commit y muestra la diferencia en los diferentes cambios del archivo)
+
 
 # Comandos  ADD, COMMIT
 
@@ -18,3 +19,12 @@ git add <nombre archivo> (Agrega un archivo especifico al Stage)
 
 git commit (Agrega los archivos agregados al repositorio local)
 git commit -m "Mensaje" (Agrega los archivos agregados al repositoria local con un mensaje añadido)
+
+# Comandos de análisi de archivos
+
+git diff <número commit a comparar> <número commit con el que comparar>
+
+# Comandos de regresión
+
+git reset <número commit> -soft (Regresa en el directorio de trabajo a la versión anterior)
+git reset <número commit> -hard (Regresa al estado anterior del archivo modificandolo por completo)
