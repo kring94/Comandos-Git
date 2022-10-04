@@ -4,6 +4,7 @@
 
 git config --global user.name "Nombre Apellido"
 git config --global user.email "email@email.com"
+git config -l (Enlista las configuración del entorno local de git)
 
 # Comandos de seguimiento de archivos 
 
