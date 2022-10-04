@@ -1,0 +1,20 @@
+## Comandos Git - Curso Platzi
+
+# Comandos de configuración inicial 
+
+git config --global user.name "Nombre Apellido"
+git config --global user.email "email@email.com"
+
+# Comandos de seguimiento de archivos 
+
+git status (Muestra la condición en la que se encuentran los archivos en la carpeta en la que estamos)
+git log <nombre archivo> (Muestra los cambios realizados en un archivo)
+git show <nombre archivo> (Muestra el ultimo commit y ubicación, mensaje del commit y muestra la diferencia en los diferentes cambios del archivo)
+
+# Comandos  ADD, COMMIT
+
+git add . (Agrega todos los archivos de la carpeta en la que nos encontremos al Stage)
+git add <nombre archivo> (Agrega un archivo especifico al Stage)
+
+git commit (Agrega los archivos agregados al repositorio local)
+git commit -m "Mensaje" (Agrega los archivos agregados al repositoria local con un mensaje añadido)
