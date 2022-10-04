@@ -38,4 +38,14 @@ git checkout master <nombre archivo> (Me trae de regreso el archivo en su versi√
 
 git branch <nombre rama> (Crear una rama y sigue los cambios realizandoce en master)
 git checkout <nombre rama> (Nos traslada a la rama enunciada)
+git merge <nombre rama> (Por lo general tenemos que estar ubicados en la rama principal)
+
+
+# Comando para manejo de repositorio remoto (GitHub) por http
+
+git remote add origin  <link repositorio remoto> (Agrega un repositorio remoto para darle manejo a nuestros proyectos)
+git push origin master o <nombre rama> (Agrega los archivos del proyecto al repositorio remoto)
+git pull origin master (Agrega los archivos del repositorio remoto al repositorio local)
+
+
 
