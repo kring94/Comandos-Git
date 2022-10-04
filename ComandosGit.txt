@@ -46,6 +46,7 @@ git merge <nombre rama> (Por lo general tenemos que estar ubicados en la rama pr
 git remote add origin  <link repositorio remoto> (Agrega un repositorio remoto para darle manejo a nuestros proyectos)
 git push origin master o <nombre rama> (Agrega los archivos del proyecto al repositorio remoto)
 git pull origin master (Agrega los archivos del repositorio remoto al repositorio local)
+git pull origin master --allow-unrelated-histories (Este comando es muy especial y hace un merge de los que existe en un repositorio remoto con un repositorio local)
 
 
 
