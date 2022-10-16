@@ -1,0 +1,196 @@
+### Lista de comandos Git ###
+
+## Comandos configuraciones iniciales ##
+
+	>> git config 
+		> -- global user.name "<usuario>"
+			= Configura el nombre del usuario
+		> user.name
+			= Muestra el usuario registrado
+		> -- global user.email <email usuario>
+			= Configura el correo del usuario
+		> user.email
+			= Muestra el email configurado
+		> --global core.editor "vim"
+			= Configura el editor predeterminado que usara git
+		> --List
+			= Muestra las configuraciones de git
+	
+## Crear nuestro repositorio, preparar y subir archivos
+
+	> git init 
+		= Inicializa nuestro proyecto (Lo inicializa hallan o no archivos)
+	> git status
+		= Muestra el estado del repositorio y los dice si han habido cambios realizados en los distintos archivos
+
+	>> git add <nombre archivo>
+		= Prepara el archivo para subir al repositorio 
+		> git add .
+			= Prepara todos los archivos de la rama master a la zona de preparación
+		> git add -A 
+			= Agrega solo los archivos que estamos siguiendo con git al area de preparación
+
+	> git reset HEAD <file>
+		= Saca el archivo de la zona de preparación
+
+	>> git commit
+		= Realiza el commit, abriendo el editor configurado con git, permitiendo escribir el mensaje con modificaciones personalizadas
+		> git commit -m "mensage para el commit o lo que se esta subiendo al repositorio"
+			= Sube el archivo al repositorio, crea un punto en el historial
+		> git commit -a -m "mesaje"
+			=Realiza el commit  saltando el area de preparación, solo para archivos ya rastreados en git
+		> git commit --amend 
+			= Abre en el editor los datos del ultimo commit, permitiendo modificar el mensaje
+
+	>> git log 
+		= Muestra el historia de cambios 
+		> git log --online
+			= Nos muestra el historial abreviado
+		> git log --graph
+			= Añade un pequeño gráfico ASCII mostrando el historial de ramificaciones
+		> git log --online --graph
+			= Muestra en arbol grafico los commits ramificados
+		> git log -3
+			= Muestra los ultimos commits de número dicho
+		> git log --pretty=format:"%h - %an, %ar : %s "
+			= Muestra información del commit, en un formato modificado
+		> git log --after="2018-11-02 00:05:00"
+			= Muestra el historial despues de la fecha dada
+		> git log --before="2018-11-02 00:05:00"
+			= Muestra el historial antes de la fecha dada
+		> git log --after="2018-11-02 00:05:00" --before="2018-11-03 00:00:00"
+			= Muestra el historial entre las fechas dadas
+		> git log --decorate --online --all
+			= Muestra todas las ramas del proyecto en formato de una sola linea
+
+	>> git diff
+		= Muestra la diferencia especifica, de las modificaciones realizadas en los archivos del directorio de trabajo
+		> git diff --staged
+			= Vemos la diferencia entre lo preparado y no preparado
+		> git diff idinit  idending
+			= Muestra la diferencia entre dos commit
+		> git diff testing
+			= Muestra la diferencia de contenido elaborado entre las distintas ramas del proyecto
+
+## Configuración  .gitignore
+	https://www.gitignore.io/
+	
+	> Se agrega el nombre de los archivos con su respectiva extención
+
+## Nombración, eliminación y restauración 
+
+	> git checkout --<ruta de archivo>
+		= Se utiliza para restaurar archivos eliminados del proyecto, localmente.
+	> git rm <ruta de archivo>
+		= Se utiliza para eliminar archivos, del area de trabajo de git, y de nuestro directorio, y lo ubica en un area de confirmación, (Se confirma la eliminación con un "commit")
+	> git mv file_from file_to
+		= Renombra un archivo, y lo pone en un area de confirmación para un "commit", este metodo es mejor que renombrarlo en nuestro directorio ya que nos ahorra pasos adicionales
+	
+## Deshacer "commit"
+
+	> git commit --amend
+		= Esto comando utiliza el area de preparación para la confimación.
+			Al final terminarás con una sola confimación - la segunda confirmación reemplaza el resultado de la primera.
+			Si no hemos hecho cambios desde la última confirmación entonces la instantánea lucirá exactamente igual y lo único que cambiaremos será el mensaje del commit. 
+	> git reset HEAD <nombre archivo>
+		= Saca el archivo del area de preparación
+
+## Moverse entre rama y commit
+
+	>> git checkout <branch name>
+		= Nos mueve a la rama descrita
+		> git checkout idcommit	
+			= Nos nueve a un commit descrito
+		
+## Etiquetas
+	´Estas son alías para apuntadores de commits´ 
+
+	>> git tag  
+		= Lista en orden alfabetico las etiqueta creadas.
+		> git tag <tagname> (Etiqueta ligera)
+			= Crea una etiqueta ligera, que sera una alias simple para un apuntador de commit.
+		> git tag  -a v1.0 -m 'my version 1.0'(Etiqueta anotada)
+			= Crea una etiqueta anotada, la cual se guarda como un objeto completo de git, conservando fecha y otro datos.
+		> git tag -d <tag name>
+			= Elimina una etiqueta.
+
+	>> git show <my tag>
+		= Muestra el commit relacionado con la etiqueta creada
+	
+## Crear y eliminar ramas 
+
+	>> git branch 
+		= Muestra la rama en la que se esta ubicado
+		> git branch <new branch>
+			= Crea una nueva rama
+		> git branch -v
+			= Muestra las ramas y sus commits mas recientes
+		> git branch -d <name branch>
+			= Elimina una rama, solo en el caso en que este fusionada con otra rama, de lo contrario no dejaria eliminarla
+		> git branch -D <name branch>
+			= Elimina una rama este o no fusionada con otra rama
+		> git branch --all
+			= Muestra todas las ramas incluidas las ocultas
+
+	>> git checkout -b <new branch> 
+		= Crea una nueva rama y salta a ella
+
+## Fusion de ramas
+
+	> git merge <other branch>
+		= Inconpora otra rama, en la rama principal o en la que se esta ubicado
+	> git branch --no-merged
+		= Nos dice cuales ramas no han sido fusionadas a la rama actual
+	> git branch --merged
+		= Nos muestra las ramas ya fusionadas a la actual
+
+## Procesos en repositorios
+
+	>> git push origin <branch name>
+		= Sube los commits realizados localmente 
+		> git push -u origin <branch name>
+			= Sube el proyecto a un repositorio nuevo
+
+	> git fetch origin master	
+		= Nos trae cambios de nuestro repositorio en la nube, Producido por aportes de otros desarroyadores
+
+
+	# Pasos para aportar a otro repositorio
+		1. Hacer un fork en Github.
+		2. Clonar el repositorio desde mi cuenta de Github.
+		3. Crear una rama local.
+		4. Realizar mis cambios en mi nueva rama local.
+		5. Confirmar los cambios realizados en local.
+		6. Hacer push de mis cambios (enviar los commits locales a Github) `git push origin nombre_rama`.
+		7. Crear un pull request con la nueva rama de mi repositorio en Github.
+		8. Esperar que el administrador del repositorio original acepte mis cambios.
+
+	# Varios repositorios remotos
+		Podemos configurar un mismo proyecto para sincronizar cambios con varios repositorios remotos.
+
+	>> git remote
+		= Muestra con la rama que estamos sicronizados en la nube
+		> git remote --verbose
+			= Muestra los enlaces de sincronización
+		> git remote add <name of sinc> <link sinc>
+			= Agregamos un repositorio remoto
+		> git remote rename <oldrep> <newrep>
+			= Cambia el nombre del repositorio remoto sincronizado
+
+	>> git pull <name of sinc> <master>
+		= Nos agrega (descarga) un repositorio vinculado, y los mezcla con el local
+
+## Configuración llaves SSH *Windows
+
+	1. Creamos una carpeta en la vamos almacenar la llave
+	2. Ejecutamos el comando `ssh-keygen -t rsa -C "ronald9412@gmail.com"`
+		2.1. Nos pedira una ruta, ingresamos en la que queremos guardarla
+	3. Iniciamos el agente ssh-agent ejecutando el comando `eval "$(ssh-agent -s)"`
+	4. Agregamos la llave ssh generada a ssh-agent ejecutando el comando `ssh-add <ruta/llaveprivada>`
+	5. Usar el comando `cat /ruta/llavepublica` para ver el contenido del archivo y copiamo todo el texto que nos muestra 
+	6. Ir a las configuraciones de nuestro perfil en el servido y agregar la llave ssh con el contenido que hemos copiado con el contenido del comando anterior
+	7. Agragamos el remoto en SSH `git remote add <name of sinc> <link sinc>` del sevidor y listo
+
+
+
+
